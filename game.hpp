@@ -10,11 +10,11 @@
 using namespace std;
 
 class game{
+public:
+    game(string p1, string p2);
+    void start();
 private:
-    Board board;
+    board board;
     player players[2];
     int currentTurn;
-public:
-    game();
-    void start();
 };
