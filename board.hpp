@@ -7,7 +7,7 @@
 #include <string>
 using namespace std;
 
-struct Question{
+struct question{
     string category;
     string text;
     string answer;
@@ -17,11 +17,11 @@ struct Question{
 }
 class board{
 private:
-    Question questions[6][5];
+    question questions[6][5];
     string categories[6]
 public:
     board();
     void display();
-    Question getQuestion(string category, int value);
+    question getQuestion(string category, int value);
     void markUsed(string category, int value);
 };

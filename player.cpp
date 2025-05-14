@@ -5,21 +5,21 @@
 
 #include "player.hpp"
 
-player(){
+player::player(){
 }
-player(string name){
+player::player(string name){
     setName(name);
     score=0;
 }
-void setName(string name){
+void player::setName(string name){
     this->name=name;
 }
-void addScore(int points){
+void player::addScore(int points){
     score+=points;
 }
-string getName() const{
+string player::getName() const{
     return name;
 }
-int getScore() const{
+int player::getScore() const{
     return score;
 }
