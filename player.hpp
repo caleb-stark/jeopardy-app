@@ -4,6 +4,8 @@
 //
 
 #pragma once
+#include <string>
+using namespace std;
 
 class player{
 private:
@@ -11,7 +13,7 @@ private:
     int score;
 public:
     player();
-    player(string name, int score);
+    player(string name);
     void setName(string name);
     void setScore(int score);
     string getName() const;
