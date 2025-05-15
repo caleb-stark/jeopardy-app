@@ -11,6 +11,7 @@ class player{
 private:
     string name;
     int score;
+
 public:
     player();
     player(string name);
