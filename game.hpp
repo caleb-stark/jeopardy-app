@@ -12,7 +12,7 @@ using namespace std;
 class game{
 public:
     game(string p1, string p2);
-    void start();
+    void start(int numQuestions);
 private:
     board board;
     player players[2];

@@ -15,7 +15,7 @@ public:
     player();
     player(string name);
     void setName(string name);
-    void setScore(int score);
+    void addScore(int points);
     string getName() const;
     int getScore() const;
 };
