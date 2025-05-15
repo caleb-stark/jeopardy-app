@@ -4,9 +4,7 @@
 //
 
 #include <iostream>
-
+#include "game.hpp"
 int main(){
-    game game;
-    game.start();
     return 0;
 }

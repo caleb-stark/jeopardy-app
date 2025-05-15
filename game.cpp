@@ -34,25 +34,26 @@ game::game(string p1, string p2) : players{player(p1), player(p2)} {
 // - Show both players' scores
 // - Declare the winner (or a tie)
 void game::start(int numQuestions){
-  board board();
-
   for (int i = 0; i < numQuestions; i++) {
     board.display();
     cout << players[i%2].getName() << "'s turn" << endl;
     string category;
-    string value;
+    int value;
     cout << "Choose a category (0-5)" << endl;
     getline(cin, category);
     cout << "Pick a dollar value (100, 200, ..., 500)" << endl;
-    getline(cin, value);
-    while (board.getQuestion(category, value) == nullptr) {
+    cin >> value;
+    cin.ignore();
+    question q = board.getQuestion(category, value);
+    while (q.used) {
       cout << "Invalid input, please try again" << endl;
       cout << "Choose a category (0-5)" << endl;
       getline(cin, category);
       cout << "Pick a dollar value (100, 200, ..., 500)" << endl;
-      getline(cin, value);
+      cin >> value;
+      cin.ignore();
+      q = board.getQuestion(category, value);
     }
-    question q = board.getQuestion(category, value);
     cout << "Category: "<< q.category << endl;
     cout << "question: "<< q.text << endl;
     cout << "value: "<< q.value << endl;
@@ -61,7 +62,7 @@ void game::start(int numQuestions){
     getline(cin, answer);
     if (q.answer == answer) {
       cout << "Correct!" << endl;
-      players[i%2].setScore(q.value);
+      players[i%2].addScore(q.value);
       board.markUsed(q.category, q.value);
     } else {
       cout << "Wrong!" << endl;
