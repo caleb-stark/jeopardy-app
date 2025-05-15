@@ -8,12 +8,7 @@
 #include <iomanip>
 using namespace std;
 
-// Constructor
-// - Initialize the 6 category names (e.g., Math, Science, etc.)
-// - Set question values (100–500)
-// - Fill the 6x5 questions array with hardcoded questions and answers
-// - Mark all questions as not used
-
+// Premade Questions
 static const char* SAMPLE_QS[6][5] = {
     {"2+2?","3×3?","√16?","10−4?","5+7?"},
     {"H₂O chemical name?","Speed of light?","Atomic number of C?","Red Planet?","pH of water?"},
@@ -23,6 +18,7 @@ static const char* SAMPLE_QS[6][5] = {
     {"Soccer team size?","Sport with shuttlecock?","Golf holes?","Max bowling score?","NBA court length?"}
 };
 
+// Premade answers
 static const char* SAMPLE_AS[6][5] = {
     {"4","9","4","6","12"},
     {"Water","299792458","6","Mars","7"},
@@ -32,6 +28,7 @@ static const char* SAMPLE_AS[6][5] = {
     {"11","Badminton","18","300","94"}
 };
 
+// Constructor
 board::board(){
     const char* catNames[6] = {"Math","Science","History","Literature","Geography","Sports"};
     for (int i = 0; i < 6; ++i) {
@@ -47,9 +44,6 @@ board::board(){
 }
 
 // Display the board
-// - Print category names at the top
-// - For each row (100, 200, ..., 500):
-// - Print the value or "X" if the question has been used
 void board::display() const {
     for (int i = 0; i < 6; ++i)
         cout << setw(12) << categories[i];
@@ -66,9 +60,6 @@ void board::display() const {
 }
 
 // Get a question by category index and value
-// - Search the questions in the specified category
-// - Return a pointer to the matching question if it’s not used
-// - Return nullptr if it’s already used or not found
 question board::getQuestion(const string &category, int value) const {
     for (int i = 0; i < 6; ++i) {
         if (categories[i] == category) {
@@ -82,8 +73,6 @@ question board::getQuestion(const string &category, int value) const {
 }
 
 // Mark a question as used
-// - Find the question matching the given category index and value
-// - Set its used flag to true
 void board::markUsed(const string &category, int value) {
     for (int i = 0; i < 6; ++i) {
         if (categories[i] == category) {
