@@ -2,6 +2,8 @@
 //  main.cpp
 //  jeopardy-app
 //
+//  caleb stark
+//
 
 #include <iostream>
 #include "game.hpp"
